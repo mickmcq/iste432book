@@ -21,7 +21,7 @@
 
 \vskip12pt
 
-\textsc{spring 2019}
+\textsc{fall 2019}
 
 \vskip148pt
 
