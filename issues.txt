@@ -1,0 +1,4 @@
+data conflicts used in two different ways
+"cheaper to lock at the table level"
+
+processing time used in two different ways

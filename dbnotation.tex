@@ -1,0 +1,22 @@
+% Commands for database class notes
+% mjm
+% 2014-11-08 17:32
+%
+% Load this file before \begin{document}
+%
+% This file assumes \input{preamble-notes.tex} or
+% \input{preamble-slides.tex} has been declared in
+% preamble for color dbnotation
+%
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{tikz-er-crowsfoot}
+\newcommand{\DA}{{\color{subtitle}{DA}}}
+\newcommand{\DBA}{{\color{subtitle}{DBA}}}
+\newcommand{\attr}[1]{{\texttt{\small\color{dbnotation}{#1}}}}
+\newcommand{\pk}[1]{{\ul{#1}}}
+\newcommand{\fk}[1]{{\textit{#1}}}
+\newcommand{\pkfk}[1]{{\ul{\textit{#1}}}}
+\newcommand{\relation}[1]{{\RaggedRight{\texttt{\small\color{dbnotation}{#1}}}}}
+\newcommand{\integrityconstraint}[1]{\noindent\hangindent=0.4cm{\texttt{\small\quad\color{integrityconstr}{#1}}}}
+\newcommand{\fd}[2]{{\RaggedRight{\texttt{\small\color{dbnotation}{\{ #1 \}} $\rightarrow$ \color{dbnotation}{\{ #2 \}}}}}}
