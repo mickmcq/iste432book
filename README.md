@@ -1,3 +1,5 @@
+# iste432book
+
 This repository contains the files needed to create `book.pdf`, as well as that file itself, the Study Guide for ISTE432, *Database Applications Development*, a course taught at Rochester Institute of Technology, Golisano College of Computing and Information Sciences.
 
 You can create the pdf by cloning this repository and typing `make` at the command line in the target directory. This assumes that you have
