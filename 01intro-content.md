@@ -60,7 +60,7 @@
   \medskip
 
   This document was produced by \XeLaTeX,\linebreak
-  using the \textit{Erewhon} font package.
+  using the \textit{fbb} font package.
 
   \medskip
 

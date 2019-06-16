@@ -3,7 +3,7 @@ basename = book
 latex    = xelatex
 option   = -jobname $(basename) '\input{preamble-basic.tex}'
 texdir   = '/usr/local/texlive/texmf-local/tex/'
-pandir   = '$HOME/.pandoc/templates/'
+pandir   = ~/.pandoc/templates/
 
 all : $(basename).tex
 	cp -p preamble-basic.tex $(texdir)
@@ -13,7 +13,7 @@ all : $(basename).tex
 	cp -p colorsettings.tex $(texdir)
 	cp -p listingssettings.tex $(texdir)
 	cp -p tikzsettings.tex $(texdir)
-	cp -p fontsettings-erewhon.tex $(texdir)
+	cp -p fontsettings-fbb.tex $(texdir)
 	cp -p dbnotation.tex $(texdir)
 	cp -p widths.tex $(texdir)
 	cp -p miscsettings.tex $(texdir)
