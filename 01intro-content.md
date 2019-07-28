@@ -76,7 +76,7 @@ or\linebreak
 \medskip
 
 \noindent
-\textcopyright 2019, Michael J McQuaid
+\textcopyright \the\year, Michael J McQuaid
 \end{center}
 
 \thispagestyle{empty}
