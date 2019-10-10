@@ -158,6 +158,27 @@ overhead means the most CPU processing time.
 - Finer grained the locking level, the more likely users will not
   have to wait for resources
 
+## Avoiding most locking
+Although some modern databases such as Oracle feature locking, most locking isn't strictly needed by databases (including Oracle) implementing multiversion concurrency control.
+The following notes come from an excellent blog post by
+[brandur](https://brandur.org/postgres-atomicity).
+
+## Multiversion concurrency control
+Statements execute inside a transaction with boundaries and create multiple new versions of data instead of overwriting it. The new versions of data are hidden until the transaction commits and any reading transactions see the previous version via a *snapshot* of the database at the time the writing transaction begins. PostgreSQL implements a process called Vacuum to periodically remove the hidden rows that are no longer valid after the transaction commits.
+
+PostgreSQL uses a write-ahead log to achieve durability in the face of crashes or power losses. All changes are written and flushed to disk so that in the event of sudden termination, PostgreSQL can replay the write-ahead log to recover changes that didn't make it into the database.
+
+In addition to the write-ahead log, there is also a commit log, which forms the ground truth of commit status. It records only two bits besides the id of each transaction. Those two bits record four possible states: in progress, committed, aborted, and sub-committed.
+
+## Performance considerations
+The preceding is an oversimplification of the process described in brandur's blog post. For performance reasons, there are a lot of additional features. In particular, PostgreSQL skips a lot of steps for some transactions if they never try to write. Transactions are still written to the write-ahead log and commit log if they are aborted, but unaffected rows of the database have snapshots that are never consulted because of the aborted flags in the logs.
+
+## Subcommitting
+A transaction may have a parent row and several subcommitted rows. Each subcommitted row must be committed before the parent is committed and the database may crash after every subcommit and before the parent commit, so these need to be recorded separately.
+
+## Some locking is still required
+A process that commits acquires a lock on the last process ID completed to avoid negation of its work.
+
 ## Database errors can't all be fixed
 - Human errors (new users not trained completely)
 - Computer crashes

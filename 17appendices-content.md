@@ -46,10 +46,11 @@ For this milestone, begin the development book with headings including
 1. Team Members and Roles
 2. Background
 3. Project Description
-4. Project Requirements
-5. Business Rules
+4. Project Requirements (the voice of the client)
+5. Business Rules (subject matter constraints like "you must buy something before you can sell it" or app-related constraints like "you must log in before you can have a transaction")
 6. Technologies Used
-7. Timeline
+7. Design Patterns
+8. Timeline (mainly milestone due dates)
 
 The timeline should be organized around the future milestones.
 
@@ -75,6 +76,9 @@ One project just said that MVC would be used because it was needed but did not s
 ### MVC needs to be better explained
 One group described how MVC would be used but it did not seem realistic. For example, in this case it was said that the model would be *the data in the database*. The view would be *what the user sees* and the controller would be *the backend functionality*. These descriptions are too generic. Think about what may be possible.
 
+### Always be coding
+One issue students face is that they don't have enough code too late in the development of the project. By including sample code for the design patterns, you get a head start on coding.
+
 ## Milestone 3. Layering
 
 Please add a section to your development book called Layering. Within
@@ -84,6 +88,7 @@ concepts from the prerequisite course, Database Connectivity and Access,
 for this description. It should include as much specificity as possible.
 For example, it would be helpful to include the names of the classes you
 plan to write in each layer, as well as brief descriptions of the classes.
+You should include code demonstrating each of the layers. From this point on in the development book, you should always be coding and always be showing sample code.
 
 Some concerns that crop up in the development of a development book can be grouped together under the heading of *vagueness*.
 Bullet points are problematic if they have a subject and no
@@ -104,6 +109,12 @@ commit to some choice, we've narrowed our options.
 
 [A google map overlay](http://www.improving-visualisation.org/vis/id=134)
 called maptube exemplifies a choropleth map, a geo-artifact in which regions are colored according to numerical values of some characteristic. Designing effective choropleth maps is difficult. The color aspect, for instance, is the main work of Rebecca Brewer whose app ColorBrewer helps designers solve individual instances of the problem.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=4in]{fiAlwaysBeCoding.jpg}
+  \end{center}
+\end{figure}
 
 ## Milestone 4. Exception Handling
 

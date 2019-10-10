@@ -74,7 +74,7 @@ Garbage collection in Java is predicated on the notion that most objects
 The author's firm requires 300ms response time for web services, so garbage
   collection is too aggressive.
 
----
+\medskip\hrule\medskip
 
 Each application has a connection pool.
 Each connection has a statement pool. Each statement has a query and a (not cached) result

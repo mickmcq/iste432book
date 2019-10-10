@@ -121,12 +121,12 @@ Spaced repetition is a learning approach that has been
 successfully employed by many, including most medical students
 over the past century.
 
----
+\medskip\hrule\medskip
 
 ### Cost
 The study presented a method for evaluating the cost of cracking a 56-bit secret using bitcoin mining and determined an average cost of 1m USD at January 2014 rates. The method itself was presented so that the number could be updated to account for economic fluctuations. The number supported segmentation of adversaries into categories of individuals, corporate entities, and nation-states. Clearly, the latter two categories would not be deterred by a million dollar price tag. So the authors can make a convincing claim that their password regime impedes determined individual adversaries.
 
----
+\medskip\hrule\medskip
 
 ### Effort
 The study examined the effort required by average users to 
@@ -134,12 +134,12 @@ practice the regime and found that it added about twelve minutes over the course
 Each login during the learning period took an average of 6.9 seconds extra for learning the secret.
 The secret consisted of 676 common words, combined and arranged in a manner chosen by the researchers to create a genuinely random 56-bit string. The use of the words is similar to the horse battery staple concept presented in a famous xkcd cartoon by Randall Munroe, but accomplished in a more precisely defined manner so that the adversary is definitely presented with 56 randomly ordered bits.
 
----
+\medskip\hrule\medskip
 
 ### Validation
 The study was conducted using a distraction task, a popular method to improve the generalizability of results. A distraction task is a task the experimental participant believes to be central to the experiment. It distracts the participant from the real task, in this case, learning the secret. This validation approach nullifies the criticism that the participants were trying really hard and would relax in real life. In fact, the participants were trying really hard to do something else and were unaware of the significance of learning the secret.
 
----
+\medskip\hrule\medskip
 
 ### Ethical Concerns
 Any research where participants are deceived presents an ethical risk. In 1979 a document called the [Belmont Report](http://www.hhs.gov/ohrp/humansubjects/guidance/belmont.html) presented basic ethical principles that underly all subsequent US regulations of human subject research. The three principles are named (1) respect for persons, (2) beneficence, and (3) justice. While these three names sound very generic, they are defined in great detail in the report, in subsequent legislation, in many books on ethics, and in plenty of free online tutorials. The study publication explains how the researchers complied with these principles.

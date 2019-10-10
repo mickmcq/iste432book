@@ -213,6 +213,7 @@ Suppose we know the functional dependencies
 
 \fd{Supplier}{Name, Street, City, State, Zip}
 
+\noindent
 and suppose further that we know that
 
 \fd{Zipcode}{City, State}
@@ -240,6 +241,7 @@ Name,
 Street,
 Zipcode)}
 
+\noindent
 as a separate relation. But what happened to City and State? The above table would not be in 2NF if I included them because City and State ordinarily depend only on Zip. Since I noted that explicitly above, I'm going to skip the 1NF version of a Supplier table go right to a combination of Supplier and Zip as follows
 
 \relation{Zipcode(\pk{Zipcode},
@@ -256,6 +258,7 @@ No. Knowing the Item does not determine the Colors, given that Colors has been d
 
 \relation{Itemcolors(\pk{Item},\pk{Colors})}
 
+\noindent
 where each row uniquely identifies a combination of Item and Colors. There is only one superkey, one candidate key, and one primary key possible.
 
 ## Third normal form
@@ -788,13 +791,13 @@ c. \fd{Producer}{ProducerURL} (rule 5)
 d. \fd{Category}{CategorySales} (rule 8)
 e. \fd{Media}{MediaPrice} (rule 9)
 
----
+\medskip\hrule\medskip
 
 Step 2 is to use the above functional dependencies to identify candidate keys for the \attr{MUSIC} relation.
 Why not begin with a superkey composed of the LHS of each functional dependency? This provides a composite key of \attr{\pk{Artist}, \pk{Title}, \pk{Producer}, \pk{Category}, \pk{Media}}. Next, examine this superkey to see what can be removed from it. Since three of the attributes depend on \attr{Title}, they may be removed, leaving an irreducible superkey (candidate key) of \attr{\pk{Title}, \pk{Media}}. Next, if this is to be used as the primary key, identify the functional dependencies above that would lead to a partial dependency---a nonkey attribute dependent on part of the primary key or a transitive dependency---a nonkey attribute dependent on another nonkey attribute that is in turn dependent on the primary key.
 The partial dependencies are 2NF violations and the transitive dependencies are 3NF violations.
 
----
+\medskip\hrule\medskip
 
 Given a primary key of \attr{\pk{Title}, \pk{Media}}:
 
@@ -863,7 +866,7 @@ For the following relation and functional dependencies, determine the highest no
 ### Answer
 Relation \attr{Q2} has the primary key \attr{\pk{a},\pk{b}}. The first functional dependency tells us that this primary key determines the other two attributes, so the relation could be in 2NF if the remaining functional dependencies don't introduce any problems. Unfortunately, they do. The second functional dependency says that \attr{c} depends on part of the primary key, so the relation \attr{Q2} is not in 2NF. The third functional dependency the information that a second attribute, \attr{d}, depends on part of the primary key. Either of these dependencies alone is enough to limit \attr{Q2} to being in 1NF. To normalize this relation, these attributes must be removed to new tables and referential integrity constraints must be added because the components of the primary key of \attr{Q2} are now also foreign keys of the new relations.
 
----
+\medskip\hrule\medskip
 
 \relation{Q2( \pkfk{a},\pkfk{b} )}
 
@@ -944,7 +947,7 @@ First draft:
 
 \relation{supplier( \pk{name}, street, city, state, zip )}
 
----
+\medskip\hrule\medskip
 
 The presence of a multivalued attribute in the diagram, colors, indicates that we can remove the colors to a separate relation and omit them from the item relation. Then we need a relation that allows us to associate an item with a color. We can ignore the derived attribute in the diagram, \attr{profit}, since it can be calculated at runtime.
 Second draft:
@@ -957,7 +960,7 @@ Second draft:
 
 \relation{itemcolors( \pkfk{itemid}, \pkfk{color} )}
 
----
+\medskip\hrule\medskip
 
 Since we now have foreign keys appearing in two relations, we need referential integrity statements. Third draft:
 
@@ -1050,7 +1053,7 @@ The second functional dependency says that \attr{ItemName} and \linebreak
 
 \relation{ItemN( \pk{ItemN}, ItemName, ItemPrice )}
 
----
+\medskip\hrule\medskip
 
 The third functional dependency tells us that eight attributes depend on part of the primary key, so they must be removed to a separate relation and a referential integrity constraint added.
 
@@ -1077,7 +1080,7 @@ The third functional dependency tells us that eight attributes depend on part of
   TotalDue
 )}
 
----
+\medskip\hrule\medskip
 
 The fourth functional dependency tells us that \attr{CustName} and \attr{CustAddress} depend on an attribute of the new relation InvoiceN, so they must be removed to a separate relation and a referential integrity constraint added.
 
@@ -1109,7 +1112,7 @@ The fourth functional dependency tells us that \attr{CustName} and \attr{CustAdd
   CustAddress
 )}
 
----
+\medskip\hrule\medskip
 
 The fifth functional dependency tells us that \attr{SalespersonName} depends on an attribute of the relation \attr{InvoiceN}, so they must be removed to a separate relation and a referential integrity constraint added.
 
@@ -1146,7 +1149,7 @@ The fifth functional dependency tells us that \attr{SalespersonName} depends on 
   SalespersonName
 )}
 
----
+\medskip\hrule\medskip
 
 We resolved all the partial and transitive dependencies to create the new set of five relations. To determine whether this new set is in BCNF, we reexamine the five functional dependencies to see whether every determinant (LHS) is a candidate key. As it turns out we have the same number of relations as functional dependencies and each of those relations has a primary key that corresponds to one of the functional dependencies. Therefore, the set of five relations above is a solution in BCNF.
 
@@ -1206,11 +1209,11 @@ The second functional dependency introduces a partial dependency, requiring \att
   6
 )}
 
----
+\medskip\hrule\medskip
 
 The third functional dependency indicates that two attributes depend on a nonkey attribute. The situation is complicated by the fact that one of the members of the dependent set is in the first two determinant sets. There is a mutual dependence between \attr{1} and \attr{5}. I have previously described this situation as trivial and one that may be dismissed. Looking it up in my C.J. Date textbook, I see that I should add that mutually dependent attributes may not appear on the same side of a functional dependency. While in this case they never do, it makes sense to check. Another textbook points out that mutual dependence may infer the existence of an undiscovered determinant. In either case, this dependency can be rewritten as a trivial dependency \fd{5}{1} and a transitive dependency \fd{5}{6}. The latter requires that \attr{6} be removed from relation \attr{B} and a new referential integrity constraint added.
 
----
+\medskip\hrule\medskip
 
 \relation{A( 
   \pkfk{1},
@@ -1273,7 +1276,7 @@ The fourth functional dependency requires that we remove \attr{7} and \attr{8} f
   8
 )}
 
----
+\medskip\hrule\medskip
 
 The fifth functional dependency requires that we remove \attr{8} from relation \attr{D} and add a new referential integrity constraint.
 
@@ -1315,7 +1318,7 @@ The fifth functional dependency requires that we remove \attr{8} from relation \
   8
 )}
 
----
+\medskip\hrule\medskip
 
 The sixth functional dependency requires that we remove \attr{9} and \attr{10} from relation \attr{A} and add new referential integrity constraints.
 
@@ -1365,11 +1368,11 @@ The sixth functional dependency requires that we remove \attr{9} and \attr{10} f
   10
 )}
 
----
+\medskip\hrule\medskip
 
 The seventh and eighth functional dependencies constitute a mutual dependence on the RHS of a previous functional dependency. They require that we remove \attr{9} or \attr{10} from relation \attr{F} and add new referential integrity constraints. Note that it is irrelevant which we remove as long as they do not wind up appearing on the same side of a functional dependency.
 
----
+\medskip\hrule\medskip
 
 \relation{A( 
   \pkfk{1},

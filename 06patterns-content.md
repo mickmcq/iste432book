@@ -236,6 +236,6 @@ The new members are: Null Object, Type Object, Dependency Injection, and Extensi
     - Examples of implementation
 
 ## UI Patterns
-[PatternTap](http://patterntap.com/) provides what it calls examples of UI patterns. It may make sense to question whether these are design patterns in the way that Alexander and the GoF define patterns, or simply a loose, convenient, vague use of the term.
+[PatternTap](https://zurb.com/word/design-patterns) provides what it calls examples of UI patterns. It may make sense to question whether these are design patterns in the way that Alexander and the GoF define patterns, or simply a loose, convenient, vague use of the term.
 
 ## References

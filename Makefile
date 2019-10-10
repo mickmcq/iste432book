@@ -18,6 +18,9 @@ all : $(basename).tex
 	cp -p widths.tex $(texdir)
 	cp -p miscsettings.tex $(texdir)
 	cp -p pandocSyntax.tex $(texdir)
+	cp -p listings-lstlang4.tex $(texdir)
+	cp -p tikz-er-crowsfoot.sty $(texdir)
+	cp -p weiwBTree.sty $(texdir)
 	$(latex) $(option) || true
 	grep -q $(rerun) $(basename).log \
 	     && $(latex) $(option) \
