@@ -332,10 +332,17 @@ When you are logged in to `psql` you should remember the following commands.
 `\dt` describe tables in the current database
 
 Please verify that PostgreSQL is running and the database is loaded by answering the following questions using SQL. Include documentation of your method for loading the database, your
-SQL queries, and your results in a markdown file called `standup01.md`.
+SQL queries, and your results in a markdown file called `standup.md`. The answers below show what your queries should produce.
 
 1. What is the most frequently mentioned first
    language?
+
+```
+ First Language
+---------------
+ JAVA
+(1 row)
+```
 
 2. What are the counts of all languages at all
    ranks? List them using language names and rank
@@ -343,9 +350,82 @@ SQL queries, and your results in a markdown file called `standup01.md`.
 
 Note that you should not waste time trying to represent combinations that do not appear in the data. Think like the customer of the data.
 
-3. For each language mentioned as having skill(value) HIGH, identify the most frequently named MEDIUM language. If you prefer, use more than one query but not more than two, i.e., feel free to create a table of languages in step 1.
+```
+  Language  | Skill Level | Count
+---------------------------------
+ C          | HIGH        |     1
+ C          | MEDIUM      |     2
+ C          | LOW         |     7
+ C#         | HIGH        |     1
+ C#         | MEDIUM      |     2
+ C#         | LOW         |     2
+ C++        | MEDIUM      |    22
+ C++        | LOW         |     4
+ COBOL      | MEDIUM      |     1
+ JAVA       | HIGH        |    34
+ JAVA       | MEDIUM      |     1
+ JAVASCRIPT | HIGH        |     1
+ JAVASCRIPT | MEDIUM      |     4
+ OTHER      | HIGH        |     1
+ OTHER      | MEDIUM      |     3
+ OTHER      | LOW         |     7
+ OTHER      | ULTRA LOW   |     2
+ PHP        | HIGH        |     1
+ PHP        | MEDIUM      |     3
+ PHP        | LOW         |     3
+ PYTHON     | HIGH        |     1
+ PYTHON     | MEDIUM      |     1
+ PYTHON     | LOW         |     2
+(23 rows)
+```
 
-For example, suppose nine people mentioned Java as HIGH. Among those people, suppose four mentioned C++ as medium, three mentioned Python as medium, and two mentioned Haskell as medium. Then the answer for Java would be C++. You must include an answer for each language mentioned as HIGH.
+3. For each language mentioned as having skill(value) HIGH, identify the MEDIUM languages mentioned by the same person.
+
+```
+ student_id |    high    |   medium
+------------╪------------╪------------
+          1 | JAVA       | C++
+          2 | JAVA       | C++
+          3 | JAVA       | C++
+          4 | JAVA       | C++
+          5 | JAVA       | C++
+          6 | JAVA       | C++
+          7 | JAVA       | C++
+          8 | JAVA       | C++
+          9 | JAVA       | C++
+         10 | JAVA       | C++
+         11 | JAVA       | PYTHON
+         12 | JAVA       | C++
+         13 | JAVA       | C++
+         14 | JAVA       | C++
+         15 | JAVA       | C#
+         16 | OTHER      |
+         17 | JAVA       | JAVASCRIPT
+         18 | PHP        | OTHER
+         19 | JAVASCRIPT | PHP
+         20 | C          | C++
+         21 | PYTHON     | JAVA
+         22 | JAVA       | JAVASCRIPT
+         23 | JAVA       | OTHER
+         24 | JAVA       | PHP
+         25 | JAVA       | C
+         26 | JAVA       | PHP
+         27 | JAVA       | C#
+         28 | JAVA       | COBOL
+         29 | JAVA       | C++
+         30 | JAVA       | C++
+         31 | JAVA       | C++
+         32 | JAVA       | C++
+         33 | JAVA       | C++
+         34 | JAVA       | JAVASCRIPT
+         35 | C#         | C++
+         36 | JAVA       | JAVASCRIPT
+         37 | JAVA       | C++
+         38 | JAVA       | C
+         39 | JAVA       | C++
+         40 | JAVA       | OTHER
+(40 rows)
+```
 
 Please use fenced code blocks for your SQL. A fenced code block starts with a blank line, followed by a line containing nothing but three backticks in the first three columns, and immediately followed by the letters sql. Subsequent lines contain your sql code. After the last line of sql code, comes a line containing nothing but three backticks in the first three columns, followed by a blank line.  For example,
 
