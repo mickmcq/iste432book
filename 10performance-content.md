@@ -163,54 +163,63 @@ performance parameters. For example, one project in Fall 2014 contemplated
 using Gibson, a host at RIT available to students, as an application server
 and database server. You can use `ssh` to connect to this system and issue some commands to determine some of its characteristics as follows.
 
-## Kelvin
-Kelvin is a server students may use instead of Gibson.
+## Serenity
+Serenityis a server students may use instead of Gibson.
 
 \scriptsize
 \begin{verbatim}
-[mjmics@kelvin ~]$ uname -a
-    Linux kelvin.ist.rit.edu 2.6.32-504.3.3.el6.x86_64 #1 SMP
-    Wed Dec 17 01:55:02 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+[mjmics@ist-serenity ~]$ uname -a
+Linux ist-serenity 3.10.0-693.11.6.el7.x86_64 #1 SMP
+Thu Jan 4 01:06:37 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
 
-[mjmics@kelvin ~]$ df -h
-    df: `/root/.gvfs': Permission denied
-    Filesystem            Size  Used Avail Use% Mounted on
-    /dev/mapper/vg_kelvin-LogVol00
-                           32G  6.3G   24G  21% /
-    tmpfs                 7.8G   80K  7.8G   1% /dev/shm
-    /dev/sda1             976M  146M  780M  16% /boot
-    /dev/mapper/vg_kelvin-LogVol02
-                          818G   23G  754G   3% /home
-    /dev/mapper/vg_kelvin-LogVol01
-                          126G   14G  106G  12% /var
+[mjmics@ist-serenity ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda3        20G  7.8G   13G  39% /
+devtmpfs        3.9G     0  3.9G   0% /dev
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           3.9G  387M  3.5G  10% /run
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/sda1      1014M  330M  685M  33% /boot
+/dev/sdb1       500G  128G  373G  26% /home
+/dev/sda2       100G   29G   72G  29% /var
+tmpfs           783M   12K  783M   1% /run/user/42
+tmpfs           783M     0  783M   0% /run/user/15017
+tmpfs           783M     0  783M   0% /run/user/994157323
+tmpfs           783M     0  783M   0% /run/user/994278231
+tmpfs           783M     0  783M   0% /run/user/994428139
+tmpfs           783M     0  783M   0% /run/user/994126154
+tmpfs           783M     0  783M   0% /run/user/994488898
+tmpfs           783M     0  783M   0% /run/user/994430547
+tmpfs           783M     0  783M   0% /run/user/994060468
+tmpfs           783M     0  783M   0% /run/user/994273266
+tmpfs           783M     0  783M   0% /run/user/994388595
+tmpfs           783M     0  783M   0% /run/user/994337278
+tmpfs           783M     0  783M   0% /run/user/994107461
+tmpfs           783M     0  783M   0% /run/user/994506133
+tmpfs           783M     0  783M   0% /run/user/994173401
 
-[mjmics@kelvin ~]$ whoami
+[mjmics@serenity ~]$ whoami
     mjmics
 
-[mjmics@kelvin ~]$ mysql --version
-    mysql  Ver 14.14 Distrib 5.1.73, for redhat-linux-gnu (x86_64)
-           using readline 5.1
+[mjmics@ist-serenity ~]$ mysql --version
+mysql  Ver 15.1 Distrib 5.5.60-MariaDB, for Linux (x86_64)
+using readline 5.1
 
-[mjmics@kelvin ~]$ psql --version
-    psql (PostgreSQL) 8.4.20
-    contains support for command-line editing
 
-[mjmics@kelvin ~]$ mongo --version
-    MongoDB shell version: 2.4.14
+[mjmics@serenity ~]$ psql --version
+    bash: psql: command not found...
 
-[mjmics@kelvin ~]$ du -h
-    1.9G    ./Sites
-    4.0K    ./.mozilla/extensions
-    4.0K    ./.mozilla/plugins
-    12K     ./.mozilla
-    8.0K    ./.gnome2/keyrings
-    12K     ./.gnome2
-    1.9G    .
+[mjmics@serenity ~]$ mongo --version
+    MongoDB shell version: 2.6.12
 
-[mjmics@kelvin etc]$ cat /etc/centos-release
-    CentOS release 6.7 (Final)
+[mjmics@serenity ~]$ du -h
+    <too much output to list>
 
-[mjmics@kelvin etc]$ cat /etc/filesystems
+[mjmics@ist-serenity ~]$ cat /etc/centos-release
+CentOS Linux release 7.6.1810 (Core)
+
+[mjmics@serenity etc]$ cat /etc/filesystems
+    xfs
     ext4
     ext3
     ext2
@@ -220,18 +229,11 @@ Kelvin is a server students may use instead of Gibson.
     vfat
     hfs
     hfsplus
+    *
 
-[mjmics@kelvin etc]$ head /etc/init.d/httpd
-    #!/bin/bash
-    #
-    # httpd        Startup script for the Apache HTTP Server
-    #
-    # chkconfig: - 85 15
-    # description: The Apache HTTP Server is an efficient and extensible
-    #              server implementing the current HTTP standards.
-    # processname: httpd
-    # config: /etc/httpd/conf/httpd.conf
-    # config: /etc/sysconfig/httpd
+[mjmics@serenity ~]$ systemctl
+<too much output to list>
+
 \end{verbatim}
 \normalsize
 
@@ -240,24 +242,10 @@ Kelvin is a server students may use instead of Gibson.
 (Reports differ about whether the following information is obsolete. Gibson was taken out of service and returned to service. At some point that cycle will end.)
 
 - RIT has a web server named Gibson that can be your application server
-- saying `uname -a` reveals it is running SunOS 5.10 on an i86pc
-- Googling reveals that 5.10 is equivalent to Solaris 10, but that SunOS is
-  a subset of Solaris---just the operating system
-- [Oracle documentation](http://docs.oracle.com/cd/E19253-01/817-0403/6mg741bqq/index.html) says
-    - to use `showrev` with various options
-    - `prtconf` claims that 1GB of memory is installed (??)
-    - `prtconf -x` exits silently, indicating 64-bit ready\linebreak firmware
-    - `psrinfo -pv` indicates that gibson has an AMD\linebreak Opteron 6274 CPU running
-      at 2.2Ghz
-
-- `df -h` indicates 2GB swap space. The other numbers reported by `df` are
-  hard to interpret. My guess is that there is a physical 300GB disk with
-  5 partitions of 50GB each for user data. Each of these 5 partitions is at
-  about 25 percent of capacity. The fact that their usage levels are so
-  similar may mean an appliance of some sort is involved but I have no
-  further info. Suffice it to say that every user seems to be on a partition
-  with about 33GB free.
-- `mysql --version` indicates 5.1.62
+- saying `uname -a` and `lscpu` reveals it is running Linux on a Xeon at 2.3GHz
+- `df -h` is puzzling. It looks as if there is a 3.7T physical disk with per user limits of 194G although there are far more users than would accommodate this. I have to admit I don't understand the output of this command at this time.
+- `mysql --version` indicates MariaDB
+- `cat /etc/redhat-release` indicates Red Hat Enterprise Server 7.6
 
 Note that, for many versions of Linux, distribution info can be found by saying `lsb_release -a` at a terminal prompt. More information about `lsb_release` is available on many distributions by saying `man lsb_release` at a terminal prompt, or by googling *Linux Standard Base*, a joint project of several Linux distributions to improve compatibility between them.
 
