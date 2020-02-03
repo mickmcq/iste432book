@@ -164,7 +164,7 @@ using Gibson, a host at RIT available to students, as an application server
 and database server. You can use `ssh` to connect to this system and issue some commands to determine some of its characteristics as follows.
 
 ## Serenity
-Serenityis a server students may use instead of Gibson.
+Serenity is a server students may use instead of Gibson.
 
 \scriptsize
 \begin{verbatim}

@@ -260,7 +260,9 @@ What tools would you use to get the data, format it correctly and save it in the
 
 *The original assignment was: I want you to undertake the same challenge documenting exactly how you do it in a plain text file called challenge.txt (any kind of code and comments may be in the file as long as it is sufficient to meet the challenge.*
 
-*Note: Since you have already done the challenge in ISTE-422, your assignment is to do the reverse with the `mockData.csv` file on myCourses. Convert the fname, lname, and gender from CSV to JSON and fix any problems that prevent you from doing so. Be sure to rename the file as YYYYMMDD.json.*
+*Note: Since you have already done the challenge in ISTE-422, \color{red}{your assignment is to do the reverse with the `mockData.csv` file on myCourses.
+Convert the fname, lname, and gender from CSV to JSON and fix any problems that
+prevent you from doing so. Be sure to rename the file as YYYYMMDD.json.}*
 
 Following is some starter code that should get you going on this assignment. You should look up `readline` and `createInterface` to get a clear picture of what is going on here.
 

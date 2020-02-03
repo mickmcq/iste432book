@@ -298,11 +298,11 @@ vendors
 ## Stakeholders
 The easiest and first way to analyze architecture is to think about the stakeholders in architecture. These may include the following groups.
 
-- Architects
-- Developers
-- Managers
-- Customers
-- Vendors
+- Architects, most concerned with correctness
+- Developers, most concerned with correctness
+- Managers, most concerned with completeness
+- Customers, most concerned with correctness
+- Vendors, most concerned with compatibility
 
 <!--
 -- [text-color=orange]
